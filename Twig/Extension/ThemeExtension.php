@@ -39,6 +39,7 @@ class ThemeExtension extends \Twig_Extension
             new \Twig_SimpleFunction('wp_get_sidebar', [$this, 'getSidebar'], ['is_safe' => ['html']]),
             new \Twig_SimpleFunction('wp_get_footer', [$this, 'getFooter'], ['is_safe' => ['html']]),
             new \Twig_SimpleFunction('wp_get_template_part', [$this, 'getTemplatePart'], ['is_safe' => ['html']]),
+            new \Twig_SimpleFunction('wp_do_action', [$this, 'doAction'], ['is_safe' => ['html']]),
         ];
     }
 
@@ -75,5 +76,13 @@ class ThemeExtension extends \Twig_Extension
     public function getTemplatePart($slug, $name = null)
     {
         \get_template_part($slug, $name);
+    }
+    
+     /**
+     * Execute functions hooked on a specific wordpress action hook.
+     */
+    public function doAction($name)
+    {
+        \do_action($name);
     }
 }
