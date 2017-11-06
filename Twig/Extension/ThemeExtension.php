@@ -89,6 +89,8 @@ class ThemeExtension extends \Twig_Extension
     
      /**
      * Execute functions hooked on a specific wordpress action hook.
+     *
+     * @param string $name
      */
     public function doAction($name)
     {
