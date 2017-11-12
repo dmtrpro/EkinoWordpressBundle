@@ -75,6 +75,6 @@ class WordpressEntryPoint implements AccessDeniedHandlerInterface, Authenticatio
             'reauth'      => 0,
         ]);
 
-        return RedirectResponse::create($url, 401);
+        return RedirectResponse::create($url, 302);
     }
 }
